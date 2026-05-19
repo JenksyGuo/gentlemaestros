@@ -15,11 +15,12 @@
 <xo-sticky-hidden xo-name='sticky-addcart'></xo-sticky-hidden>
 <footer {% render 'section-attr', style: pb_mobile %}>
   {% render 'section-bg-image' %}
-  <div class='footer-v5__top'>
-    <xo-container {% render 'section-layout' %}>
-      <xo-grid>
-        {% for block in section.blocks %}
-          {% case block.type %}
+  {% if section.blocks.size > 0 %}
+    <div class='footer-v5__top'>
+      <xo-container {% render 'section-layout' %}>
+        <xo-grid>
+          {% for block in section.blocks %}
+            {% case block.type %}
             {% when 'information' %}
               <xo-animate xo-cascade style='--xs: 12; --xl: 3'>
                 {%- if block.settings.logo != blank -%}
@@ -120,11 +121,12 @@
                   {{ block.settings.subtext }}
                 </div>
               </xo-animate>
-          {% endcase %}
-        {% endfor %}
-      </xo-grid>
-    </xo-container>
-  </div>
+            {% endcase %}
+          {% endfor %}
+        </xo-grid>
+      </xo-container>
+    </div>
+  {% endif %}
   <xo-container {% render 'section-layout' %}>
     <div class='footer-v5__bottom'>
       <div class='footer-v5__copyright'>

@@ -77,6 +77,10 @@
         visibility: hidden !important;
         pointer-events: none !important;
       }
+
+      .footer-v5__top {
+        display: none !important;
+      }
     </style>
 
     <script src='{{ 'xo-webcomponents.min.js' | asset_url }}' defer></script>
@@ -221,6 +225,24 @@
           removePopups();
           document.addEventListener('DOMContentLoaded', removePopups, { once: true });
           new MutationObserver(removePopups).observe(document.documentElement, {
+            childList: true,
+            subtree: true,
+          });
+        })();
+      </script>
+      <script>
+        (() => {
+          const updateFooter = () => {
+            document.querySelectorAll('.footer-v5__top').forEach((node) => node.remove());
+            document.querySelectorAll('.footer-v5__copyright').forEach((node) => {
+              node.textContent = "© Copyright {{ 'now' | date: '%Y' }} Gentle Maestros";
+            });
+            document.querySelectorAll('.footer-v5__payment').forEach((node) => node.remove());
+          };
+
+          updateFooter();
+          document.addEventListener('DOMContentLoaded', updateFooter, { once: true });
+          new MutationObserver(updateFooter).observe(document.documentElement, {
             childList: true,
             subtree: true,
           });
