@@ -69,15 +69,6 @@
       }
     </script>
     <style>
-      xo-popup-sale-notification,
-      xo-modal#popup-promotion__modal,
-      [id*='popup-sale-notification'],
-      [id*='popup-promotion'] {
-        display: none !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-      }
-
       .footer-v5__top {
         display: none !important;
       }
@@ -206,48 +197,6 @@
       {% endcase %}
 
       {% sections 'overlay-group' %}
-      {% sections 'popup-group' %}
-
-      <script>
-        (() => {
-          const selectors = [
-            'xo-popup-sale-notification',
-            'xo-modal#popup-promotion__modal',
-            "[id*='popup-sale-notification']",
-            "[id*='popup-promotion']",
-          ];
-          const removePopups = () => {
-            selectors.forEach((selector) => {
-              document.querySelectorAll(selector).forEach((node) => node.remove());
-            });
-          };
-
-          removePopups();
-          document.addEventListener('DOMContentLoaded', removePopups, { once: true });
-          new MutationObserver(removePopups).observe(document.documentElement, {
-            childList: true,
-            subtree: true,
-          });
-        })();
-      </script>
-      <script>
-        (() => {
-          const updateFooter = () => {
-            document.querySelectorAll('.footer-v5__top').forEach((node) => node.remove());
-            document.querySelectorAll('.footer-v5__copyright').forEach((node) => {
-              node.textContent = "© Copyright {{ 'now' | date: '%Y' }} Gentle Maestros";
-            });
-            document.querySelectorAll('.footer-v5__payment').forEach((node) => node.remove());
-          };
-
-          updateFooter();
-          document.addEventListener('DOMContentLoaded', updateFooter, { once: true });
-          new MutationObserver(updateFooter).observe(document.documentElement, {
-            childList: true,
-            subtree: true,
-          });
-        })();
-      </script>
 
       <ul hidden>
         <li id='a11y-refresh-page-message'>{{ 'accessibility.refresh_page' | t }}</li>
