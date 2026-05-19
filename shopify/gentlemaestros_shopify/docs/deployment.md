@@ -4,7 +4,7 @@ This directory is the source of truth for the Gentle Maestros Shopify theme.
 
 ## Branches
 
-- `dev` deploys automatically to a Gentle Maestros development store or development theme.
+- `dev` deploys automatically to the unpublished Gentle Maestros dev theme.
 - `main` deploys automatically to the production Gentle Maestros store.
 - Feature work should branch from `main` and merge through pull requests.
 
@@ -12,7 +12,8 @@ This directory is the source of truth for the Gentle Maestros Shopify theme.
 
 Repository variables:
 
-- `SHOPIFY_STORE_DEV`: to be filled once a dev store or dev theme is created.
+- `SHOPIFY_STORE_DEV`: `gentle-maestros.myshopify.com`
+- `SHOPIFY_THEME_ID_DEV`: `189204169076`
 - `SHOPIFY_STORE_PROD`: `gentle-maestros.myshopify.com`
 - `SHOPIFY_THEME_ID_PROD`: `189203612020`
 - `SHOPIFY_DEPLOY_ENABLED`: `false` until Theme Access tokens are installed, then `true`
@@ -35,7 +36,7 @@ without replacing the static landing-page history.
 1. Open a feature branch from `main`.
 2. Open a pull request into `dev` or `main`.
 3. GitHub Actions runs Theme Check and packages the theme.
-4. A successful merge to `dev` deploys to the dev store or dev theme.
+4. A successful merge to `dev` deploys to the unpublished dev theme.
 5. A successful merge to `main` deploys to production.
 
 ## Launch Notes
@@ -43,6 +44,7 @@ without replacing the static landing-page history.
 - Store name: `Gentle Maestros`
 - Shopify store handle: `gentle-maestros.myshopify.com`
 - Live theme: `Yunkid Gentle Maestros` (`189203612020`)
+- Dev theme: `Gentle Maestros Dev Theme` (`189204169076`)
 - Default generated theme retained: `Horizon` (`189203448180`)
 - Primary domain: `gentlemaestros.com.au`
 - Shopify domain status: connected as primary domain; TLS provisioning started May 19, 2026.

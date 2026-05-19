@@ -42,7 +42,7 @@ jobs:
         run: npm run theme:package
 
   deploy-dev:
-    name: Deploy dev store
+    name: Deploy dev theme
     needs: validate
     if: github.ref == 'refs/heads/dev' && vars.SHOPIFY_DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
@@ -53,6 +53,7 @@ jobs:
     env:
       SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN_DEV }}
       SHOPIFY_STORE: ${{ vars.SHOPIFY_STORE_DEV }}
+      SHOPIFY_THEME_ID: ${{ vars.SHOPIFY_THEME_ID_DEV }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -67,13 +68,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Deploy to dev live theme
+      - name: Deploy to dev theme
         run: |
           set -o pipefail
           npx shopify theme push \
             --store "$SHOPIFY_STORE" \
-            --live \
-            --allow-live \
+            --theme "$SHOPIFY_THEME_ID" \
             --path . \
             --nodelete \
             --verbose \
