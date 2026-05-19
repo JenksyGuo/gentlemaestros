@@ -15,7 +15,7 @@ Repository variables:
 - `SHOPIFY_STORE_DEV`: `gentle-maestros.myshopify.com`
 - `SHOPIFY_THEME_ID_DEV`: `189204169076`
 - `SHOPIFY_STORE_PROD`: `gentle-maestros.myshopify.com`
-- `SHOPIFY_THEME_ID_PROD`: `189203612020`
+- `SHOPIFY_THEME_ID_PROD`: `189208985972`
 - `SHOPIFY_DEPLOY_ENABLED`: `false` until Theme Access tokens are installed, then `true`
 
 ## Required GitHub Secrets
@@ -43,7 +43,7 @@ without replacing the static landing-page history.
 
 - Store name: `Gentle Maestros`
 - Shopify store handle: `gentle-maestros.myshopify.com`
-- Live theme: `Yunkid Gentle Maestros` (`189203612020`)
+- Live theme: `Gentle Maestros Performance Fix` (`189208985972`)
 - Dev theme: `Gentle Maestros Dev Theme` (`189204169076`)
 - Default generated theme retained: `Horizon` (`189203448180`)
 - Primary domain: `gentlemaestros.com.au`
