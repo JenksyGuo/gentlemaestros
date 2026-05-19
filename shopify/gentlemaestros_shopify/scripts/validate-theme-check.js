@@ -1,9 +1,13 @@
 const { spawnSync } = require('child_process');
+const path = require('path');
+
+const themeRoot = path.resolve(__dirname, '..');
+const shopifyBin = path.join(themeRoot, 'node_modules', '.bin', 'shopify');
 
 const result = spawnSync(
-  './node_modules/.bin/shopify',
-  ['theme', 'check', '--output', 'json'],
-  { encoding: 'utf8' }
+  shopifyBin,
+  ['theme', 'check', '--output', 'json', '--path', themeRoot],
+  { cwd: themeRoot, encoding: 'utf8' }
 );
 
 if (result.stderr) {
