@@ -1,0 +1,257 @@
+<section class="gm-home" aria-label="Gentle Maestros introduction">
+  <div class="gm-home__hero">
+    <div class="gm-home__copy">
+      <p class="gm-home__eyebrow">Melbourne based · Designed in Australia</p>
+      <h1>Gentle Maestros</h1>
+      <p class="gm-home__lede">
+        Musical play toys for little maestros: soft, sensory-friendly learning kits
+        that help children discover rhythm, sound, colour, and creative confidence.
+      </p>
+      <div class="gm-home__actions">
+        <a class="gm-home__button" href="mailto:hello@gentlemaestros.com.au">Contact hello@gentlemaestros.com.au</a>
+        <a class="gm-home__link" href="#gentle-maestros-products">See the play kits</a>
+      </div>
+    </div>
+    <div class="gm-home__visual">
+      <img src="{{ 'gentle-maestros-kit-1.jpg' | asset_url }}" alt="Gentle Maestros music-inspired learning toy kit" loading="eager" width="1000" height="1000">
+      <span class="gm-home__badge">Music play for curious hands</span>
+    </div>
+  </div>
+
+  <div class="gm-home__intro">
+    <img src="{{ 'gentle-maestros-logo.jpg' | asset_url }}" alt="Gentle Maestros logo" width="320" height="320" loading="lazy">
+    <div>
+      <p class="gm-home__kicker">For musical little people</p>
+      <h2>Playful tools for rhythm, listening, and early creative learning.</h2>
+      <p>
+        Gentle Maestros is a Melbourne-based children&apos;s toy store creating
+        gentle music-led play moments for homes, playrooms, early learning spaces,
+        and families who want toys with a calmer beat.
+      </p>
+    </div>
+  </div>
+
+  <div id="gentle-maestros-products" class="gm-home__cards" aria-label="Gentle Maestros product photos">
+    <article>
+      <img src="{{ 'gentle-maestros-kit-1.jpg' | asset_url }}" alt="Children's music learning kit with colourful play pieces" loading="lazy" width="900" height="900">
+      <h3>Rhythm discovery kits</h3>
+      <p>Hands-on music play for tapping, sorting, listening, and building early pattern confidence.</p>
+    </article>
+    <article>
+      <img src="{{ 'gentle-maestros-kit-2.jpg' | asset_url }}" alt="Gentle Maestros musical play toy product photo" loading="lazy" width="900" height="900">
+      <h3>Gentle sound play</h3>
+      <p>Designed for warm family play, sensory curiosity, and screen-free creative learning.</p>
+    </article>
+    <article>
+      <img src="{{ 'gentle-maestros-kit-3.jpg' | asset_url }}" alt="Music-inspired children's toy kit for play and learning" loading="lazy" width="900" height="900">
+      <h3>Designed in Australia</h3>
+      <p>Melbourne based ideas for young musical people, thoughtful gifting, and everyday discovery.</p>
+    </article>
+  </div>
+</section>
+
+{% style %}
+  .gm-home {
+    --gm-ink: #1f2118;
+    --gm-green: #637342;
+    --gm-gold: #d8a84f;
+    --gm-cream: #fff6df;
+    --gm-blush: #f8d9c6;
+    background:
+      radial-gradient(circle at 16% 18%, rgba(248, 217, 198, 0.9), transparent 28rem),
+      radial-gradient(circle at 86% 4%, rgba(216, 168, 79, 0.34), transparent 24rem),
+      linear-gradient(135deg, #fffaf0 0%, #f8edd5 54%, #f1e0bb 100%);
+    color: var(--gm-ink);
+    padding: clamp(3rem, 8vw, 7rem) clamp(1.1rem, 5vw, 5rem);
+    overflow: hidden;
+  }
+
+  .gm-home__hero,
+  .gm-home__intro,
+  .gm-home__cards {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .gm-home__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(280px, 0.98fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .gm-home__eyebrow,
+  .gm-home__kicker {
+    color: var(--gm-green);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+  }
+
+  .gm-home h1 {
+    font-size: clamp(3.4rem, 9vw, 8.4rem);
+    letter-spacing: -0.08em;
+    line-height: 0.88;
+    margin: 0;
+    max-width: 9ch;
+  }
+
+  .gm-home__lede {
+    font-size: clamp(1.18rem, 2vw, 1.55rem);
+    line-height: 1.45;
+    margin: 1.5rem 0 0;
+    max-width: 39rem;
+  }
+
+  .gm-home__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    align-items: center;
+  }
+
+  .gm-home__button,
+  .gm-home__link {
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .gm-home__button {
+    background: var(--gm-ink);
+    color: #fffaf0;
+    padding: 1rem 1.35rem;
+    box-shadow: 0 1rem 2rem rgba(31, 33, 24, 0.18);
+  }
+
+  .gm-home__link {
+    color: var(--gm-ink);
+    border-bottom: 2px solid currentColor;
+  }
+
+  .gm-home__visual {
+    position: relative;
+  }
+
+  .gm-home__visual img,
+  .gm-home__cards img,
+  .gm-home__intro img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .gm-home__visual img {
+    aspect-ratio: 1;
+    border-radius: 44% 56% 51% 49% / 55% 40% 60% 45%;
+    box-shadow: 0 2rem 5rem rgba(82, 64, 34, 0.24);
+  }
+
+  .gm-home__badge {
+    position: absolute;
+    right: -1rem;
+    bottom: 8%;
+    background: var(--gm-gold);
+    border: 2px solid rgba(31, 33, 24, 0.16);
+    border-radius: 999px;
+    color: var(--gm-ink);
+    font-weight: 900;
+    padding: 0.85rem 1.1rem;
+    transform: rotate(-4deg);
+  }
+
+  .gm-home__intro {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: clamp(1.4rem, 4vw, 3rem);
+    align-items: center;
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(31, 33, 24, 0.12);
+    border-radius: 2rem;
+    margin-top: clamp(3rem, 8vw, 6rem);
+    padding: clamp(1.2rem, 4vw, 2.2rem);
+  }
+
+  .gm-home__intro img {
+    border-radius: 1.4rem;
+    box-shadow: 0 1rem 2rem rgba(31, 33, 24, 0.1);
+  }
+
+  .gm-home__intro h2 {
+    font-size: clamp(1.8rem, 4vw, 3.25rem);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    margin: 0 0 1rem;
+  }
+
+  .gm-home__intro p:last-child {
+    font-size: 1.08rem;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 58rem;
+  }
+
+  .gm-home__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .gm-home__cards article {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(31, 33, 24, 0.12);
+    border-radius: 1.7rem;
+    overflow: hidden;
+  }
+
+  .gm-home__cards img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .gm-home__cards h3 {
+    font-size: 1.45rem;
+    letter-spacing: -0.03em;
+    margin: 1.1rem 1.1rem 0.45rem;
+  }
+
+  .gm-home__cards p {
+    line-height: 1.55;
+    margin: 0 1.1rem 1.25rem;
+  }
+
+  @media (max-width: 820px) {
+    .gm-home__hero,
+    .gm-home__intro,
+    .gm-home__cards {
+      grid-template-columns: 1fr;
+    }
+
+    .gm-home__intro img {
+      max-width: 150px;
+    }
+
+    .gm-home__badge {
+      right: 0.5rem;
+      bottom: 1rem;
+      max-width: 12rem;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Gentle Maestros home",
+  "tag": "section",
+  "class": "section",
+  "presets": [
+    {
+      "name": "Gentle Maestros home"
+    }
+  ]
+}
+{% endschema %}

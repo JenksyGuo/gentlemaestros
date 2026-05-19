@@ -135,7 +135,11 @@
         role='main'
         tabindex='-1'
       >
-        {{ content_for_layout }}
+        {%- if request.path == '/' -%}
+          {% section 'gentle-maestros-home' %}
+        {%- else -%}
+          {{ content_for_layout }}
+        {%- endif -%}
       </main>
 
       {%- if template contains 'index' or template contains 'home' -%}
