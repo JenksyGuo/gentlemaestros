@@ -1,0 +1,224 @@
+{% liquid
+  assign catalogue_product = collection.products.first
+  assign catalogue_variant = catalogue_product.selected_or_first_available_variant
+%}
+
+<section class="gm-catalogue" aria-label="Gentle Maestros catalogue">
+  <div class="gm-catalogue__inner">
+    <p class="gm-catalogue__eyebrow">Gentle Maestros catalogue</p>
+    <h1>One musical play kit, ready for little hands.</h1>
+    <p class="gm-catalogue__lede">
+      The Gentle Maestros catalogue is intentionally simple: one Melbourne-based,
+      designed-in-Australia musical play kit for rhythm, listening, and creative discovery.
+    </p>
+
+    {% if catalogue_product %}
+      <article class="gm-catalogue__product">
+        <a class="gm-catalogue__image" href="{{ catalogue_product.url }}">
+          {% if catalogue_product.featured_image %}
+            <img
+              src="{{ catalogue_product.featured_image | image_url: width: 1100 }}"
+              alt="{{ catalogue_product.featured_image.alt | default: catalogue_product.title | escape }}"
+              width="1100"
+              height="1100"
+              loading="eager"
+            >
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag: 'gm-catalogue__placeholder' }}
+          {% endif %}
+        </a>
+
+        <div class="gm-catalogue__details">
+          <p class="gm-catalogue__label">Only product</p>
+          <h2>{{ catalogue_product.title }}</h2>
+          <div class="gm-catalogue__price">{{ catalogue_product.price | money }}</div>
+          <div class="gm-catalogue__description">
+            {{ catalogue_product.description | default: 'A gentle, music-inspired play kit for sensory-friendly sound play, rhythm discovery, and screen-free creativity.' }}
+          </div>
+
+          {% if catalogue_variant %}
+            <form method="post" action="{{ routes.cart_add_url }}" class="gm-catalogue__form">
+              <input type="hidden" name="id" value="{{ catalogue_variant.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <button class="gm-catalogue__button" type="submit" {% unless catalogue_variant.available %}disabled{% endunless %}>
+                {% if catalogue_variant.available %}
+                  Add the kit to cart
+                {% else %}
+                  Temporarily unavailable
+                {% endif %}
+              </button>
+              <a class="gm-catalogue__link" href="{{ catalogue_product.url }}">View product details</a>
+            </form>
+          {% endif %}
+        </div>
+      </article>
+    {% else %}
+      <div class="gm-catalogue__empty">
+        <h2>The kit is being added to the catalogue.</h2>
+        <p>
+          The storefront is ready for a single product. If you need help before checkout opens,
+          email <a href="mailto:hello@gentlemaestros.com.au">hello@gentlemaestros.com.au</a>.
+        </p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% style %}
+  .gm-catalogue {
+    --gm-ink: #1f2118;
+    --gm-green: #637342;
+    --gm-gold: #d8a84f;
+    background:
+      radial-gradient(circle at 14% 16%, rgba(248, 217, 198, 0.9), transparent 25rem),
+      radial-gradient(circle at 90% 6%, rgba(216, 168, 79, 0.34), transparent 24rem),
+      linear-gradient(135deg, #fffaf0 0%, #f8edd5 58%, #f1e0bb 100%);
+    color: var(--gm-ink);
+    padding: clamp(3rem, 7vw, 6rem) clamp(1.1rem, 5vw, 5rem);
+  }
+
+  .gm-catalogue__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .gm-catalogue__eyebrow,
+  .gm-catalogue__label {
+    color: var(--gm-green);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+  }
+
+  .gm-catalogue h1 {
+    font-size: clamp(2.8rem, 7vw, 6.8rem);
+    letter-spacing: -0.08em;
+    line-height: 0.92;
+    margin: 0;
+    max-width: 12ch;
+  }
+
+  .gm-catalogue__lede {
+    font-size: clamp(1.12rem, 2vw, 1.45rem);
+    line-height: 1.5;
+    margin: 1.3rem 0 0;
+    max-width: 48rem;
+  }
+
+  .gm-catalogue__product,
+  .gm-catalogue__empty {
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(31, 33, 24, 0.12);
+    border-radius: 2rem;
+    box-shadow: 0 2rem 5rem rgba(82, 64, 34, 0.13);
+    margin-top: clamp(2rem, 6vw, 4rem);
+    overflow: hidden;
+  }
+
+  .gm-catalogue__product {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.05fr);
+  }
+
+  .gm-catalogue__image {
+    background: #fff6df;
+    display: block;
+    min-height: 100%;
+  }
+
+  .gm-catalogue__image img,
+  .gm-catalogue__placeholder {
+    display: block;
+    height: 100%;
+    min-height: 32rem;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .gm-catalogue__details,
+  .gm-catalogue__empty {
+    padding: clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .gm-catalogue__details h2,
+  .gm-catalogue__empty h2 {
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    letter-spacing: -0.06em;
+    line-height: 1;
+    margin: 0 0 1rem;
+  }
+
+  .gm-catalogue__price {
+    color: var(--gm-ink);
+    font-size: 1.7rem;
+    font-weight: 900;
+    margin-bottom: 1.2rem;
+  }
+
+  .gm-catalogue__description {
+    font-size: 1.06rem;
+    line-height: 1.65;
+  }
+
+  .gm-catalogue__form {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .gm-catalogue__button {
+    appearance: none;
+    background: var(--gm-ink);
+    border: 0;
+    border-radius: 999px;
+    box-shadow: 0 1rem 2rem rgba(31, 33, 24, 0.18);
+    color: #fffaf0;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 900;
+    padding: 1rem 1.35rem;
+  }
+
+  .gm-catalogue__button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .gm-catalogue__link,
+  .gm-catalogue__empty a {
+    color: var(--gm-ink);
+    font-weight: 900;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.25em;
+  }
+
+  @media (max-width: 820px) {
+    .gm-catalogue__product {
+      grid-template-columns: 1fr;
+    }
+
+    .gm-catalogue__image img,
+    .gm-catalogue__placeholder {
+      min-height: 22rem;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Gentle Maestros catalogue",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Gentle Maestros catalogue"
+    }
+  ]
+}
+{% endschema %}
