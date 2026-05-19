@@ -2,7 +2,9 @@
   "sections": {
     "gentle_maestros_home": {
       "type": "gentle-maestros-home",
-      "settings": {}
+      "settings": {
+        "cache_buster": "2026-05-20-performance"
+      }
     }
   },
   "order": [
