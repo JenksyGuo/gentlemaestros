@@ -130,13 +130,7 @@
   <xo-container {% render 'section-layout' %}>
     <div class='footer-v5__bottom'>
       <div class='footer-v5__copyright'>
-        {% if section.settings.copyright != blank %}
-          {{- section.settings.copyright -}}
-        {% else %}
-          <small class='footer-v5__copyright-content'>&copy; Copyright {{ 'now' | date: '%Y' }} | {{ shop.name | escape | link_to: routes.root_url -}}</small>
-          <small class='footer-v5__copyright-content'> By <a class='footer-v5__copyright-shopilaunch' href='https://shopilaunch.com/'> ShopiLaunch.</a> </small>
-          <small class='footer-v5__copyright-content footer-v5__copyright-content--black'>{{ powered_by_link }}.</small>
-        {% endif %}
+        <small class='footer-v5__copyright-content'>&copy; Copyright {{ 'now' | date: '%Y' }} Gentle Maestros</small>
       </div>
       <div class='footer-v5__payment'>
         {% if section.settings.image_payment != blank %}
@@ -183,7 +177,7 @@
       "type": "liquid",
       "id": "copyright",
       "label": "t:sections.footer_v1.settings.copyright.label",
-      "default": " © Copyright {{ 'now' | date: '%Y' }} | <a href='http://engotheme.com' rel='nofollow' target='_blank' class='footer-v5__theme-name'>Engo-theme</a> By <a href='https://shopilaunch.com/' rel='nofollow' target='_blank' class='footer-v5__shop-name'> ShopiLaunch.</a><a href='https://shopify.pxf.io/9gPaY0' rel='nofollow' target='_blank' class='footer-v5__powered-shopify'> Powered by Shopify.</a>"
+      "default": "© Copyright {{ 'now' | date: '%Y' }} Gentle Maestros"
     },
     {
       "type": "image_picker",
