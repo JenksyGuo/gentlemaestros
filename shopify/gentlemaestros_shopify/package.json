@@ -1,0 +1,11 @@
+{
+  "name": "gentlemaestros-shopify-theme",
+  "private": true,
+  "scripts": {
+    "theme:check": "node scripts/validate-theme-check.js",
+    "theme:package": "shopify theme package --path ."
+  },
+  "devDependencies": {
+    "@shopify/cli": "latest"
+  }
+}

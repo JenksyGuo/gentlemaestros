@@ -1,0 +1,51 @@
+name: Validate Shopify theme
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+    paths:
+      - shopify/gentlemaestros_shopify/**
+      - .github/workflows/validate.yml
+      - .github/workflows/deploy.yml
+  push:
+    branches:
+      - main
+      - dev
+    paths:
+      - shopify/gentlemaestros_shopify/**
+      - .github/workflows/validate.yml
+      - .github/workflows/deploy.yml
+  workflow_dispatch:
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Theme Check and package
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: shopify/gentlemaestros_shopify
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: shopify/gentlemaestros_shopify/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Liquid/theme files
+        run: npm run theme:check
+
+      - name: Package theme
+        run: npm run theme:package

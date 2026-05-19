@@ -1,0 +1,278 @@
+{
+  "sections": {
+    "slideshow_v3_GViExD": {
+      "type": "slideshow-v3",
+      "blocks": {
+        "slideshow_A9CQUk": {
+          "type": "slideshow",
+          "settings": {
+            "reverse_layout": true,
+            "text_align": "left",
+            "title": "Baby & Toddler Toys",
+            "title_font_size": 6,
+            "title_font_weight": 500,
+            "title_animation": "fade-left",
+            "description": "Learning & Education",
+            "description_font_size": 2.8,
+            "description_font_weight": 500,
+            "description_animation": "fade-up",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_mode": "dark",
+            "button_style": "secondary",
+            "button_size": "sm",
+            "button_radius": 4,
+            "button_padding": 1.4,
+            "button_animation": "fade-left",
+            "color_scheme": "",
+            "background_type": "image",
+            "background_color": "",
+            "background_gradient": "",
+            "background_image_desktop": "shopify://shop_images/slider7.1.jpg",
+            "background_image_mobile": "shopify://shop_images/slider7.1.jpg",
+            "use_parallax": false,
+            "background_image_animation": "none",
+            "background_video_url": "",
+            "background_video_animation": "none",
+            "background_overlay": "",
+            "background_margin": 0
+          }
+        },
+        "slideshow_NzaP4x": {
+          "type": "slideshow",
+          "settings": {
+            "reverse_layout": true,
+            "text_align": "left",
+            "title": "Collectible Toys",
+            "title_font_size": 6,
+            "title_font_weight": 500,
+            "title_animation": "fade-left",
+            "description": "Learning & Education",
+            "description_font_size": 2.8,
+            "description_font_weight": 500,
+            "description_animation": "fade-up",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_mode": "dark",
+            "button_style": "secondary",
+            "button_size": "sm",
+            "button_radius": 4,
+            "button_padding": 1.4,
+            "button_animation": "fade-left",
+            "color_scheme": "",
+            "background_type": "image",
+            "background_color": "",
+            "background_gradient": "",
+            "background_image_desktop": "shopify://shop_images/slider7.2.jpg",
+            "background_image_mobile": "shopify://shop_images/slider7.2.jpg",
+            "use_parallax": false,
+            "background_image_animation": "none",
+            "background_video_url": "",
+            "background_video_animation": "none",
+            "background_overlay": "",
+            "background_margin": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_A9CQUk",
+        "slideshow_NzaP4x"
+      ],
+      "name": "t:sections.slideshow_v3.presets.name",
+      "settings": {
+        "width": "wide",
+        "fullwidth_margin": 0,
+        "section_height_desktop": 805,
+        "section_height_mobile": 500,
+        "gap": 30,
+        "reverse_layout": false,
+        "carousel_type": "none",
+        "changing_speed": 400,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "show_pagination": true,
+        "banner_setting": "banner_under",
+        "title_above": "",
+        "image_side_above": "shopify://shop_images/banner7.2.jpg",
+        "image_above_animation": "none",
+        "button_above_text": "",
+        "button_above_link": "shopify://collections/all",
+        "button_above_mode": "light",
+        "button_above_style": "secondary",
+        "button_above_size": "sm",
+        "button_above_radius": 0.8,
+        "button_above_padding": 1.4,
+        "title_under": "",
+        "image_side_under": "shopify://shop_images/banner7.1.jpg",
+        "image_under_animation": "none",
+        "button_under_text": "",
+        "button_under_link": "shopify://collections/all",
+        "button_under_mode": "light",
+        "button_under_style": "secondary",
+        "button_under_size": "sm",
+        "button_under_radius": 0.8,
+        "button_under_padding": 1.4,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "policy_v10_NKcykU": {
+      "type": "policy-v2",
+      "blocks": {
+        "policy_tbeQXp": {
+          "type": "policy",
+          "settings": {
+            "svg": "",
+            "image_svg": "shopify://shop_images/1.webp",
+            "title": "FREE SHIPPING",
+            "subtitle": "Free shipping on all order",
+            "background_color": "#fcedda"
+          }
+        },
+        "policy_EMWzFL": {
+          "type": "policy",
+          "settings": {
+            "svg": "",
+            "image_svg": "shopify://shop_images/3.webp",
+            "title": "QUALITY PROMISE",
+            "subtitle": "Full protection on every order.",
+            "background_color": "#f2fbcb"
+          }
+        },
+        "policy_QfdqQp": {
+          "type": "policy",
+          "settings": {
+            "svg": "",
+            "image_svg": "shopify://shop_images/4.webp",
+            "title": "ONLINE SUPPORT",
+            "subtitle": "Online support 24 hours a day",
+            "background_color": "#f7d8f9"
+          }
+        }
+      },
+      "block_order": [
+        "policy_tbeQXp",
+        "policy_EMWzFL",
+        "policy_QfdqQp"
+      ],
+      "name": "t:sections.policy_v10.presets.name",
+      "settings": {
+        "width": "wide",
+        "fullwidth_margin": 0,
+        "gap": 30,
+        "limit": 3,
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 30,
+        "padding_bottom": 50
+      }
+    },
+    "product_v1_Ff9ybw": {
+      "type": "product-v1",
+      "name": "t:sections.product_v1.presets.name",
+      "settings": {
+        "width": "wide",
+        "fullwidth_margin": 0,
+        "title": "TRENDING",
+        "subtitle": "",
+        "collection": "best-seller",
+        "limit": 12,
+        "columns_size": 4,
+        "distinct_color_scheme": false,
+        "product_card_color_scheme": "",
+        "button_text": "ALL PRODUCTS",
+        "button_link": "shopify://collections/all",
+        "button_mode": "accent",
+        "button_style": "secondary",
+        "button_size": "sm",
+        "button_radius": 4,
+        "button_padding": 1.4,
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 30
+      }
+    },
+    "banner_v3_Aj3iQt": {
+      "type": "banner-v3",
+      "name": "t:sections.banner_v3.presets.name",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "content_align": "center",
+        "text_align": "center",
+        "subtitle": "The best toy for your kid",
+        "title": "dolls, action figures, games and puzzles",
+        "description": "Yunkid Shop",
+        "button_text": "About Us",
+        "button_link": "shopify://collections/all",
+        "button_mode": "light",
+        "button_style": "secondary",
+        "button_size": "sm",
+        "button_radius": 4,
+        "button_padding": 1.4,
+        "color_scheme": "inverse",
+        "background_type": "image",
+        "background_color": "",
+        "background_gradient": "",
+        "background_image_desktop": "shopify://shop_images/banner9.2.jpg",
+        "background_image_mobile": "shopify://shop_images/banner9.2.jpg",
+        "use_parallax": false,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 260,
+        "padding_bottom": 260
+      }
+    },
+    "instagram_v2_Y3REGV": {
+      "type": "instagram-v2",
+      "name": "t:sections.instagram_v2.presets.name",
+      "settings": {
+        "width": "fullwidth",
+        "fullwidth_margin": 0,
+        "icon_heading": "",
+        "title": "instagram shop",
+        "subtitle": "@yunkid",
+        "columns_limit": 5,
+        "limit": 5,
+        "gap": 0,
+        "access_token": "",
+        "open_mode": "newtab",
+        "icon_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 448 512\"><path d=\"M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z\"></path></svg>",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "background_margin": 0,
+        "padding_top": 70,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "slideshow_v3_GViExD",
+    "policy_v10_NKcykU",
+    "product_v1_Ff9ybw",
+    "banner_v3_Aj3iQt",
+    "instagram_v2_Y3REGV"
+  ]
+}

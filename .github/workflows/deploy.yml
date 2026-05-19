@@ -1,0 +1,129 @@
+name: Deploy Shopify theme
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - shopify/gentlemaestros_shopify/**
+      - .github/workflows/deploy.yml
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Theme Check and package
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: shopify/gentlemaestros_shopify
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: shopify/gentlemaestros_shopify/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Liquid/theme files
+        run: npm run theme:check
+
+      - name: Package theme
+        run: npm run theme:package
+
+  deploy-dev:
+    name: Deploy dev store
+    needs: validate
+    if: github.ref == 'refs/heads/dev' && vars.SHOPIFY_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: dev
+    defaults:
+      run:
+        working-directory: shopify/gentlemaestros_shopify
+    env:
+      SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN_DEV }}
+      SHOPIFY_STORE: ${{ vars.SHOPIFY_STORE_DEV }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: shopify/gentlemaestros_shopify/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Deploy to dev live theme
+        run: |
+          set -o pipefail
+          npx shopify theme push \
+            --store "$SHOPIFY_STORE" \
+            --live \
+            --allow-live \
+            --path . \
+            --nodelete \
+            --verbose \
+            2>&1 | tee /tmp/shopify-theme-push.log
+          if grep -E "pushed with errors|Cannot overwrite generated asset|id is invalid" /tmp/shopify-theme-push.log; then
+            exit 1
+          fi
+
+  deploy-production:
+    name: Deploy production store
+    needs: validate
+    if: github.ref == 'refs/heads/main' && vars.SHOPIFY_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    defaults:
+      run:
+        working-directory: shopify/gentlemaestros_shopify
+    env:
+      SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN_PROD }}
+      SHOPIFY_STORE: ${{ vars.SHOPIFY_STORE_PROD }}
+      SHOPIFY_THEME_ID: ${{ vars.SHOPIFY_THEME_ID_PROD }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: shopify/gentlemaestros_shopify/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Deploy to production live theme
+        run: |
+          set -o pipefail
+          npx shopify theme push \
+            --store "$SHOPIFY_STORE" \
+            --theme "$SHOPIFY_THEME_ID" \
+            --allow-live \
+            --path . \
+            --nodelete \
+            --verbose \
+            2>&1 | tee /tmp/shopify-theme-push.log
+          if grep -E "pushed with errors|Cannot overwrite generated asset|id is invalid" /tmp/shopify-theme-push.log; then
+            exit 1
+          fi
+          npx shopify theme publish \
+            --store "$SHOPIFY_STORE" \
+            --theme "$SHOPIFY_THEME_ID" \
+            --force
