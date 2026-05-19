@@ -5,34 +5,9 @@
     "popup-newsletter": {
       "type": "popup-newsletter",
       "settings": {}
-    },
-    "popup-promotion": {
-      "type": "popup-promotion",
-      "settings": {}
-    },
-    "popup-sale-notification": {
-      "type": "popup-sale-notification",
-      "settings": {
-        "color_scheme": "",
-        "content_width": 500,
-        "product_list": [
-          "box-container",
-          "product-radio-swatch",
-          "product-recommendations"
-        ],
-        "customers_list": "Someone In California, USA just bought/\nSomeone In Kyoto, Japan just bought/\nSomeone In Paris, France just bought/\nSomeone In Berlin, Germany just bought/\nSomeone In Toronto, Canada just bought/",
-        "position": "bottom-left",
-        "duration": 3,
-        "delay": 3,
-        "where_to_show": "all_pages",
-        "target_pages": "",
-        "content": "Verify"
-      }
     }
   },
   "order": [
-    "popup-newsletter",
-    "popup-promotion",
-    "popup-sale-notification"
+    "popup-newsletter"
   ]
 }

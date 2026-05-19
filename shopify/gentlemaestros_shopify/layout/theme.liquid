@@ -68,6 +68,16 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    <style>
+      xo-popup-sale-notification,
+      xo-modal#popup-promotion__modal,
+      [id*='popup-sale-notification'],
+      [id*='popup-promotion'] {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+    </style>
 
     <script src='{{ 'xo-webcomponents.min.js' | asset_url }}' defer></script>
     <script src='{{ 'main.min.js' | asset_url }}' defer></script>
@@ -193,6 +203,29 @@
 
       {% sections 'overlay-group' %}
       {% sections 'popup-group' %}
+
+      <script>
+        (() => {
+          const selectors = [
+            'xo-popup-sale-notification',
+            'xo-modal#popup-promotion__modal',
+            "[id*='popup-sale-notification']",
+            "[id*='popup-promotion']",
+          ];
+          const removePopups = () => {
+            selectors.forEach((selector) => {
+              document.querySelectorAll(selector).forEach((node) => node.remove());
+            });
+          };
+
+          removePopups();
+          document.addEventListener('DOMContentLoaded', removePopups, { once: true });
+          new MutationObserver(removePopups).observe(document.documentElement, {
+            childList: true,
+            subtree: true,
+          });
+        })();
+      </script>
 
       <ul hidden>
         <li id='a11y-refresh-page-message'>{{ 'accessibility.refresh_page' | t }}</li>
